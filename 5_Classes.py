@@ -1,9 +1,7 @@
 ### File #5
-"""
-File that contains the game's
-"""
 import time
 
+#Type "Normal" for regular speed or "Fast" for debugging speed
 quick = "Normal"
 if quick == "Fast":
     typing = 0.0001
@@ -13,6 +11,7 @@ elif quick == "Normal":
     typing = 0.048 #Typing speed for regular text
     typing1 = 0.1 #Typing speed for background context
     typing2 = 0.024 #Typing speed for lists
+
 #Does the time stuff
 def typewriter(text, speed = typing):
     for char in text:
@@ -24,7 +23,6 @@ def typewriter_input(prompt, speed = typing):
         print(char, end='', flush=True)
         time.sleep(speed)
     return input()
-
 
 #Creates the player
 class Player: 
@@ -51,7 +49,6 @@ class Player:
         else:
             typewriter("\nInvalid healing item.")
             return 0
-
 
 #Creates the enemy
 class Enemy:
