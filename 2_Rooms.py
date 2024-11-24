@@ -1,13 +1,8 @@
 ### File #2
-"""
-File that contains the game's main rooms and the fight scene for the guardian. 
-"""
 
-#Imports the random library for the guardian's attacks
-from PartnerProjectClasses import *
 from PartnerProjectExtraFunctions import *
 from PartnerProjectFightScene import *
-
+from PartnerProjectClasses import *
 
 #The starting location for the game and also the addition of a pepper spray. 
 def overgrownLibrary():
@@ -101,16 +96,11 @@ def guardiansLair():
         typewriter(f"\nThe final battle begins! {player.name} vs {guardian.name}. ")
         battle()
     else:
+        #Print a list of missing locations not visited
         missing_locations = required_locations - visited_set
-        missing_messages = {
-            "Crumbling hosital": "You must visit the eerie Crumbling Hosital to uncover its secrets.",
-            "Collapsed subway tunnel": "You need to explore the dark and dangerous Collapsed Subway Tunnel.",
-            "Radio tower": "Don't forget to investigate the mysterious Radio Tower."
-        }
-        
-        typewriter("\nYou haven't visited all the required locations yet.")
+        typewriter("\nYou are missing the following locations:", speed = typing2)
         for location in missing_locations:
-            typewriter(f"- {missing_messages[location]}")
+            typewriter(f"- {location}")
         floodedBunker()
 
 
