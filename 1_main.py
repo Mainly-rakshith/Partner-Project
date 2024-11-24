@@ -3,9 +3,6 @@
 =====================================================================================================================================
 ===========================================================================================================================
 Program By: Rakshith Jayakarthikeyan
-
-DEVELOPER NOTES:
-
 ===========================================================================================================================
 VERSIONS:
 1.0 - Initial Release
@@ -33,6 +30,7 @@ To Do:
 
 Known Issues:
 - Some attack effects (damage/healing) are not balanced. Adjust for gameplay fairness.
+- Keeps printing "PlayerName" instead of the user's name in the final fight.
 
 Future Enhancements:
 - Implement multiplayer mode.
@@ -42,14 +40,17 @@ Code Considerations:
 - Be mindful of the game's memory usage when adding new features.
 - Code being used in majority of files must be called in the files following the one using it
 
+Developer Notes:
+- When trying to debug the game, you can change the variable "quick" to change the typing speed in PartnerProjectClasses
+
 ===========================================================================================================================
 =====================================================================================================================================
 """
 
-from PartnerProjectClasses import *
-from PartnerProjectExtraFunctions import *
 from PartnerProjectRooms import *
+from PartnerProjectExtraFunctions import *
 from PartnerProjectFightScene import *
+from PartnerProjectClasses import *
 
 #Call the name function
 Name()
@@ -60,18 +61,18 @@ while True:
     #Lets the character choose the class of character and their ability
         while True:
             typewriter("""\nWhat class of character would you like to choose?
-1. Knight
-2. King
-3. Horse""", speed = typing2)
+1. King
+2. Prince
+3. Lord""", speed = typing2)
             classofcharacter = typewriter_input("\nEnter the number of the class you would like to have: ")
             if classofcharacter == "1":
-                classofcharacter = "Knight"
-                break
-            elif classofcharacter == "2":
                 classofcharacter = "King"
                 break
+            elif classofcharacter == "2":
+                classofcharacter = "Prince"
+                break
             elif classofcharacter == "3":
-                classofcharacter = "Horse"
+                classofcharacter = "Lord"
                 break
             else:
                 typewriter("\nInvalid choice. Please enter a number between 1 and 3.")
@@ -80,18 +81,18 @@ while True:
         #Lets the character choose the class of character and their ability
         while True:
             typewriter("""\nWhat class of character would you like to choose?
-1. Knight
-2. Queen
-3. Horse""", speed = typing2)
+1. Queen
+2. Princess
+3. Lady""", speed = typing2)
             classofcharacter = typewriter_input("\nEnter the number of the class you would like to have: ")
             if classofcharacter == "1":
-                classofcharacter = "Knight"
+                classofcharacter = "Queen"
                 break
             elif classofcharacter == "2":
-                classofcharacter = "King"
+                classofcharacter = "Princess"
                 break
             elif classofcharacter == "3":
-                classofcharacter = "Horse"
+                classofcharacter = "Lady"
                 break
             else:
                 typewriter("\nInvalid choice. Please enter a number between 1 and 3.")
@@ -169,13 +170,5 @@ while True:
         break
     elif startGame == "N":
         typewriter("\nType 'Y' whenever you are ready to start the game. ")
-        startGame = typewriter_input("\nWould you like to start the game? Y/N: ").upper()
-        if startGame == "Y":
-            difficulty()
-            clear_screen()
-            overgrownLibrary()
-            break
-        else:
-            typewriter("\nPlease enter a valid option. ")
     else:
         typewriter("\nPlease enter a valid option. ")
