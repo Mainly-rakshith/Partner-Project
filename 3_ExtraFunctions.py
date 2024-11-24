@@ -1,10 +1,7 @@
 ### File #3
-"""
-File that contains the game's extra functions that help define the game's story
-"""
 
-from PartnerProjectClasses import *
 from PartnerProjectFightScene import *
+from PartnerProjectClasses import *
 import os
 
 def Name():
