@@ -1,4 +1,5 @@
 ### File #4
+
 from PartnerProjectClasses import *
 import random
 
@@ -24,7 +25,7 @@ guardian = Enemy(name="The Guardian", health=100)
 def battle():
     while player.health > 0 and guardian.health > 0:
         #The player's turn.
-        typewriter("\nIt's your turn. ")
+        typewriter("\n\nIt's your turn. ")
         typewriter("\nChoose your attack: ")
 
         attack_list = list(player.attacks.keys())
@@ -44,7 +45,7 @@ def battle():
         
         damage = player.perform_attack(attack_name) #Performs the attack
         guardian.health -= damage #Removes the damage from the guardian's health
-        typewriter(f"\n{player.name} attacks {guardian.name} for {damage} damage. ")
+        typewriter(f"\n\n{player.name} attacks {guardian.name} for {damage} damage. ")
         typewriter(f"\n{player.name} has {player.health} health left and {guardian.name} has {guardian.health} health left. ")
 
         if guardian.health <= 0: #Says the guardian has been defeated
@@ -52,8 +53,8 @@ def battle():
             break
 
         #POSSIBLE CODE
-        if player.health <= 50:  # Optionally trigger healing when health is low
-            print("Your health is becoming low. You can use one of the following healing items: ")
+        if player.health < guardian.health:  # Optionally trigger healing when health is low
+            print("\n\nYour health is becoming low. You can use one of the following healing items: ")
             health_list = list(player.healing_items.keys())
             for i in range(len(health_list)):
                 typewriter(f"{i + 1}. {health_list[i]}")
@@ -79,7 +80,7 @@ def battle():
             damage = random.randint(12, 15) #Damages the player a random amount of damage
         
         player.health -= damage #Removes the damage from the player's health
-        typewriter(f"\n{guardian.name} attacks you for {damage} damage. ")
+        typewriter(f"\n\n{guardian.name} attacks you for {damage} damage. ")
         typewriter(f"\n{player.name} has {player.health} health left and {guardian.name} has {guardian.health} health left. ")
 
 
