@@ -98,9 +98,9 @@ def guardiansLair():
     else:
         #Print a list of missing locations not visited
         missing_locations = required_locations - visited_set
-        typewriter("\nYou are missing the following locations:", speed = typing2)
+        typewriter("\nYou are missing the following locations:")
         for location in missing_locations:
-            typewriter(f"- {location}")
+            typewriter(f"- {location}", speed = typing2)
         floodedBunker()
 
 
@@ -120,7 +120,7 @@ def next_location(current_room):
     
     while True:
         typewriter(rooms[current_room]["Description"])
-        typewriter("\n\nPossible directions:", speed = typing2)
+        typewriter("\n\nPossible directions:")
         
         # Display the available directions with numbers
         direction_list = list(rooms[current_room]["directions"].keys())
