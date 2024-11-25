@@ -6,7 +6,7 @@ import random
 
 def difficulty():
     global level
-    typewriter("\nChoose your difficulty level: ", speed = typing2)
+    typewriter("\nChoose your difficulty level: ")
     typewriter("1. Easy", speed = typing2)
     typewriter("2. Normal", speed = typing2)
     typewriter("3. Hard", speed = typing2)
@@ -29,12 +29,13 @@ def battle():
         typewriter("\nChoose your attack: ")
 
         attack_list = list(player.attacks.keys())
+        #Prints the attack list
         for i in range(len(attack_list)):
-            typewriter(f"{i + 1}. {attack_list[i]}")
+            typewriter(f"{i + 1}. {attack_list[i]}", speed = typing2)
         
         while True:
             try:
-                choice = int(typewriter_input("\nEnter the number of the attack you want to use: "))
+                choice = int(typewriter_input("\nEnter the number of the attack you want to use: ")) #Asks the user what attack they want to use
                 if 1 <= choice <= len(attack_list): #Calls the attack
                     attack_name = attack_list[choice - 1]
                     break
@@ -52,16 +53,17 @@ def battle():
             typewriter(f"\n{guardian.name} has been defeated! You have saved your brother!")
             break
 
-        #POSSIBLE CODE
-        if player.health < guardian.health:  # Optionally trigger healing when health is low
+
+        if player.health < guardian.health - 10:  #Allows the player to heal when health is lower than the guardian's health by more than 10
             print("\n\nYour health is becoming low. You can use one of the following healing items: ")
             health_list = list(player.healing_items.keys())
+            #Prints the healing list
             for i in range(len(health_list)):
-                typewriter(f"{i + 1}. {health_list[i]}")
+                typewriter(f"{i + 1}. {health_list[i]}", speed = typing2)
         
             while True:
                 try:
-                    choice = int(typewriter_input("\nEnter the number of the healing item you want to use: "))
+                    choice = int(typewriter_input("\nEnter the number of the healing item you want to use: ")) #Asks the user what healing item they want to use
                     if 1 <= choice <= len(health_list): #Calls the healing item
                         item_name = health_list[choice - 1]
                         break
@@ -70,7 +72,7 @@ def battle():
                 except ValueError:
                     typewriter("\nInvalid choice. Please enter a valid number")
             damage = player.heal(item_name) #Performs the heal
-            player.health += damage
+            player.health += damage #Adds the health to the player
         
         if level == 1:
             damage = random.randint(3, 9) #Damages the player a random amount of damage
