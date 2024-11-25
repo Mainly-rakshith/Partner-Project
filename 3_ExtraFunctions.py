@@ -20,13 +20,21 @@ def clear_screen():
 #Puzzles
 def riddle_puzzle():
     answer = name
+    question = "10 people get off at the first stop, 5 people get on at the next, 3 people get off and 7 people get on at the next. What does the bus driver go by:  "
+    first_line = "\nImagine you are the bus driver. "
+    correct = 1
     while True:
-        response = typewriter_input("\nImagine you are the bus driver. 10 people get off at the first stop, 5 people get on at the next, 3 people get off and 7 people get on at the next. What does the bus driver go by:  ").capitalize()
+        if correct == 1:
+            response = typewriter_input(first_line + question).capitalize()
+        else:
+            print()
+            response = typewriter_input(question).capitalize()
         if response == answer:
             typewriter("\nCorrect! The door opens allowing you to proceed.")
             break
         else:
-            typewriter("\nIncorrect, try again.")        
+            typewriter("\nIncorrect, try again.")  
+            correct -= 1      
 
 def number_lock_puzzle():
     correct_code = "120"
@@ -46,11 +54,11 @@ def visit_location(location):
         visitedLocations.append(location)
         typewriter(f"\nThe locations you have entered are the following: ")
         for i, loc in enumerate(visitedLocations, start=1):
-            typewriter(f"- {loc}", speed = 0.024)
+            typewriter(f"- {loc}", speed = typing2)
     else:
         typewriter(f"\nThe locations you have entered are the following: ")
         for i, loc in enumerate(visitedLocations, start=1):
-            typewriter(f"- {loc}", speed = 0.024)
+            typewriter(f"- {loc}", speed = typing2)
 
 
 #Function to manage inventory - DIFFERENT
@@ -72,7 +80,7 @@ def attack_inventory(item, damage):
                                 item_to_remove = attack_list[remove_choice - 1][0]
                                 del player.attacks[item_to_remove]
                                 player.attacks[item] = damage
-                                typewriter(f"\nYou removed {item_to_remove} and added {item}.")
+                                typewriter(f"\nYou removed a {item_to_remove} and added {item}.")
                                 return
                             else:
                                 typewriter("\nInvalid choice. Please select a valid number.")
@@ -84,7 +92,7 @@ def attack_inventory(item, damage):
                     typewriter("\nPlease enter Y or N.")
         else:
             player.attacks[item] = damage
-            typewriter(f"\n\nYou have added {item} to your inventory. It deals {damage} damage.")
+            typewriter(f"\n\nYou have added a {item} to your inventory. It deals {damage} damage.")
     else:
         typewriter(f"\nYou already have {item} in your inventory.")
 
@@ -118,6 +126,6 @@ def healing_inventory(item, healing_value):
                     typewriter("\nPlease enter Y or N.")
         else:
             player.healing_items[item] = healing_value
-            typewriter(f"\nYou have added {item} to your healing inventory. It restores {healing_value} health.")
+            typewriter(f"\nYou have added a {item} to your healing inventory. It restores {healing_value} health.")
     else:
         typewriter(f"\nYou already have {item} in your healing inventory.")
