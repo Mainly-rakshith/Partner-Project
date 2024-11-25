@@ -1,9 +1,10 @@
 ### File #1
+
 """
-=====================================================================================================================================
-===========================================================================================================================
+==================================================================================================================================
+========================================================================================================================
 Program By: Rakshith Jayakarthikeyan
-===========================================================================================================================
+========================================================================================================================
 VERSIONS:
 1.0 - Initial Release
 - Included player and enemy classes
@@ -17,20 +18,20 @@ VERSIONS:
 - Included visited inventory so game doesn't allow user to enter final room unless required rooms have been visited
 - Changed manage inventory to attack inventory and added a healing inventory for healing items to be used in fight
 
-1.2 - Updates 2 (Pre-Thanksgiving Break)
+1.2 - Updates 2 [Pre-Thanksgiving Break]
 - Includes code being encased in multiple appropriately named files to improve organization
 - Includes gender based terminal outputs
 - Includes game difficulty; changes computer's attack strength based on input
 - Clears screen after game and player background
 - Upgraded riddle to make it less confusing and more challenging
 
-===========================================================================================================================
+========================================================================================================================
 To Do:
 - Ask how to do assign a gender based on the user's name. 
 
 Known Issues:
-- Some attack effects (damage/healing) are not balanced. Adjust for gameplay fairness.
-- Keeps printing "PlayerName" instead of the user's name in the final fight.
+- Some attack effects [damage/healing] are not balanced. Adjust for gameplay fairness.
+- Keeps printing "PlayerName" instead of the user's name whenever player's name is printed in terminal output.
 
 Future Enhancements:
 - Implement multiplayer mode.
@@ -43,9 +44,13 @@ Code Considerations:
 Developer Notes:
 - When trying to debug the game, you can change the variable "quick" to change the typing speed in PartnerProjectClasses
 
-===========================================================================================================================
-=====================================================================================================================================
+Updated To GitHub Last On:
+- 11/23/2024 -- 8:13 PM
+
+========================================================================================================================
+==================================================================================================================================
 """
+
 
 from PartnerProjectRooms import *
 from PartnerProjectExtraFunctions import *
@@ -60,8 +65,8 @@ while True:
     if gender == "M":
     #Lets the character choose the class of character and their ability
         while True:
-            typewriter("""\nWhat class of character would you like to choose?
-1. King
+            typewriter("\nWhat class of character would you like to choose?")
+            typewriter("""1. King
 2. Prince
 3. Lord""", speed = typing2)
             classofcharacter = typewriter_input("\nEnter the number of the class you would like to have: ")
@@ -80,8 +85,8 @@ while True:
     elif gender == "F":
         #Lets the character choose the class of character and their ability
         while True:
-            typewriter("""\nWhat class of character would you like to choose?
-1. Queen
+            typewriter("\nWhat class of character would you like to choose?")
+            typewriter("""\n1. Queen
 2. Princess
 3. Lady""", speed = typing2)
             classofcharacter = typewriter_input("\nEnter the number of the class you would like to have: ")
@@ -102,8 +107,8 @@ while True:
 
 
 while True:
-    typewriter("""\n\nWhat ability would you like to have? 
-1. Athletisism
+    typewriter("\n\nWhat ability would you like to have?")
+    typewriter("""1. Athletisism
 2. Intelligence
 3. Trickster""", speed = typing2)
     abilities = typewriter_input("\nEnter the number of the ability you would like to have: ")
@@ -131,7 +136,8 @@ Mara is a rival scavenger. She is a side character that has 50 health, 40 stengt
 She used to be part of a community that fell apart but now is looking to seek power
 
 The Guardian is a mentor. He is a side character who has 100 health, 75 stength, 25 stamina, 135 speed, and 40 attack power. 
-He was once a scholar but is now a mysterious person who has knowledge of the old world. """, speed = typing1-0.25)
+He was once a scholar but is now a mysterious person who has knowledge of the old world. """, speed = typing2)
+        time.sleep(5)
     elif gender == "F":
         typewriter(f"""
 The main character of the game is {name}. {name} is a {classofcharacter} who has 100 health, 75 strength, 25 stamina, 135 speed, and 40 attack power. 
@@ -141,7 +147,8 @@ Mara is a rival scavenger. She is a side character that has 50 health, 40 stengt
 She used to be part of a community that fell apart but now is looking to seek power
 
 The Guardian is a mentor. He is a side character who has 100 health, 75 stength, 25 stamina, 135 speed, and 40 attack power. 
-He was once a scholar but is now a mysterious person who has knowledge of the old world. """, speed = typing1-0.25)
+He was once a scholar but is now a mysterious person who has knowledge of the old world. """, speed = typing2)
+        time.sleep(5)
 else:
     pass
 
